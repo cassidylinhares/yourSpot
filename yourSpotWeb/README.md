@@ -1,5 +1,5 @@
-# data-management-lab-7
-Repository to hold setup instructions for lab 7.
+# yourSpot Set Up
+Repository to hold setup instructions for yourSpot.
 
 # Setup
 - [Windows](#windows-setup)
@@ -111,12 +111,8 @@ ALTER USER '[YOURUSERNAME]'@'localhost' IDENTIFIED WITH mysql_native_password BY
 ![Configuration Setup Web](img/populate-config.png)
 
 ### Run Project
-1. Run the `populate.py` script.
 
-2. Run the `web.py` script.
+1. Run the `web.py` script.
 
 
 **Note:** You can run the web and populate scripts on the command line if you ran the package installation on db.
-
-# API
-While the web.py script is running and the web page is visible, investigate the web.py script to see if you can invoke the API to get a player's information through a JSON response. **Hint:** *look at the api route and what an example player id would be.*
