@@ -15,12 +15,12 @@ Repository to hold setup instructions for yourSpot.
 - Install git [if not already installed](https://git-scm.com/download/win)
 - Clone project *run in cmd as admin*
 ```
-git clone hhttps://github.com/cassidylinhares/yourSpot
+git clone https://github.com/cassidylinhares/yourSpot
 ```
 - Install [Python 2.7 (Recommended)](https://www.python.org/downloads/release/python-2712/)
 - Add Python and Python scripts to path variable, **no spaces**
 
-![path](img/path.PNG)
+![add to path](/img/path.PNG)
 
 - Install dependencies *run in cmd as admin in project folder*
 ```
