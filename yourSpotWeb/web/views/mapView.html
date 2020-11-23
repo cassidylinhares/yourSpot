@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script>
+    <style>
+      #map {height: 500px;
+		width: 500px;
+border: 3px solid black;
+padding: 100 px;
+text-align: center;
+margin-left: auto;
+    margin-right: auto;
+}
+    </style>
+  </head>
+  <body>
+<div class="header">
+	<a href="/" class="logo">yourSpot</a>
+  <div class="header-right">
+    <a class="active" href="/">Home</a>
+    <a href="/">Map</a>
+    <a href="/">yourRestaurant</a>
+  </div>
+</div>
+<h2> Map View </h2>
+    <div id="map"></div>
+
+<button onclick="getLocation()">yourLocation</button>
+<button onclick="restLocation()">findRestaurants</button>
+
+<p id="find"></p>
+    
+  </body>
+<script>
+      var map = L.map('map').setView([0, 0], 1);
+      L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=rAlvBx5bxMdwpbUXX2N6',{
+        tileSize: 512,
+        zoomOffset: -1,
+        minZoom: 1,
+        attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
+        crossOrigin: true
+      }).addTo(map);
+ 
+    </script>
+
+ <script>
+var x = document.getElementById("find");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+var marker = L.marker ([position.coords.latitude, position.coords.longitude]).bindTooltip('Your location').addTo(map);
+map.setView([position.coords.latitude, position.coords.longitude], 12);
+ }
+
+function restLocation (){
+var marker = L.marker ([44.05647976858906, -79.47583890160057]).bindTooltip('Chez Tala').addTo(map);
+var marker = L.marker ([44.05768256757416, -79.45322787960693]).bindTooltip('Pizza Pizza').addTo(map);
+var marker = L.marker ([44.053919884318404, -79.45709026058725]).bindTooltip('Hungry Brew Hops').addTo(map);
+
+}
+
+
+</script>
+</html>
