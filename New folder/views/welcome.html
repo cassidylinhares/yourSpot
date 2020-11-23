@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+      <h1>Welcome to YourSpot!</h2>
+      <br>
+      <p>Click <a href="/logout">here</a> to logout.</p>
+      {% for message in get_flashed_messages() %}
+        {{ message }}
+      {% endfor %}
+    </div>
+  </body>
+</html>
