@@ -77,12 +77,10 @@ python setup.py install
 | ------------- |
 | yourSpot     |
 
-![MySQL Setup](img/img/import-dump.PNG)
-
 - Use the `dump.sql` to populate and create all the tables/views
 - In MySQL Workbench go to the dropdown `Server >Data Import`
 
-![data import](img/img/user-created.PNG)
+![data import](img/img/import-dump.png)
 
 ### Additional MySQL Setup
 
