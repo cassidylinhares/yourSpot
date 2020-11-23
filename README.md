@@ -20,7 +20,7 @@ git clone https://github.com/cassidylinhares/yourSpot
 - Install [Python 2.7 (Recommended)](https://www.python.org/downloads/release/python-2712/)
 - Add Python and Python scripts to path variable, **no spaces**
 
-![add to path](/img/path.PNG)
+![add to path](img/img/path.PNG)
 
 - Install dependencies *run in cmd as admin in project folder*
 ```
@@ -55,9 +55,9 @@ python setup.py install
 - When installing, make sure to include the MySQL Workbench in the installation
 - Select the default developer installation
 
-![installation](img/mysql-install-default.PNG)
+![installation](img/img/mysql-install-default.PNG)
 
-![encryption](img/authentication-setup.PNG)
+![encryption](img/img/authentication-setup.PNG)
 
 - The installation should allow you the option to create a user. Enter in the following info.
 
@@ -65,9 +65,9 @@ python setup.py install
 | ------------- | ----- |
 | root | root |
 
-![creating user](img/user-creation.PNG)
+![creating user](img/img/user-creation.PNG)
 
-![user created](img/user-created.PNG)
+![user created](img/img/user-created.PNG)
 
 # MySQL Schema Setup
 - When creating a database, make sure to create a database with the following info
@@ -77,13 +77,9 @@ python setup.py install
 | ------------- |
 | yourSpot     |
 
-![MySQL Setup](img/schema-windows.PNG)
+![MySQL Setup](img/img/schema-windows.PNG)
 
 - Use the `dump.sql` to populate and create all the tables/views
-
-![table created](img/table-creation-team.PNG)
-
-![table created](img/table-creation-players.PNG)
 
 ### Additional MySQL Setup
 
@@ -101,11 +97,11 @@ ALTER USER '[YOURUSERNAME]'@'localhost' IDENTIFIED WITH mysql_native_password BY
 
 
 ### PyCharm Debugging
-- click on the dropdown arrow ![Arrow](img/arrow.png) and select edit configurations
+- click on the dropdown arrow ![Arrow](img/img/arrow.png) and select edit configurations
 - add a python configuration with the following settings
 
 **For Web Server**
-![Configuration Setup Web](img/web-config.png)
+![Configuration Setup Web](img/img/web-config.png)
 
 ### Run Project
 
