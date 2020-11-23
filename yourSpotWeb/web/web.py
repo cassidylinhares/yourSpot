@@ -2,9 +2,8 @@ from flask import Flask, render_template, redirect, jsonify, url_for, request, s
 from flask_restful import Api
 from flask_wtf import Form
 from flask_wtf.csrf import CsrfProtect
-from wtforms import SelectField
+from wtforms import SelectField, StringField
 import db.helper as connection
-
 
 # initalize server
 app = Flask(__name__, template_folder='views', static_folder='public')
@@ -12,13 +11,12 @@ api = Api(app)
 app.config['SECRET_KEY'] = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 CsrfProtect(app)
 
-
 # create connection object and get data for teams and players
 db = connection.Connection()
 
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
+@app.route('/stuff', methods=['GET', 'POST'])
+def stuff():
     class SelectTeamForm(Form):
         teams = db.get_teams()
         name = SelectField(coerce=int, choices=teams, default=1610612737)
@@ -35,7 +33,7 @@ def index():
     return render_template("index.html", form=form)
 
 
-@app.route('/player', methods=['GET','POST'])
+@app.route('/player', methods=['GET', 'POST'])
 def player():
     class SelectPlayerForm(Form):
         team_id = session['TEAM_ID']
@@ -52,20 +50,56 @@ def player():
     return render_template("player.html", form=form)
 
 
+@app.route('/', methods=["GET", "POST"])
+def index():
+    return render_template('home.html')
+
+
+@app.route('/restaurant_info', methods=['GET', 'POST'])
+def restaurant_info():
+    # rest_id = session['RESTAURANT_ID']
+    # user_id = session['USER_ID']
+    rest_info = db.getRestaurantInfo(1)[0]
+    rest_menu = db.getMenuForRestaurant(1)
+    rest_reviews = db.getReviewsForRestaurant(1)
+    rest_reviewed_before = db.getCurrentStatusOfFavs(1)
+
+    class AddReview(Form):
+        choices = [(1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')]
+        style = {'style': 'display:block;'}
+        addRating = SelectField(label="How was your experience? ", choices=choices, default=5, coerce=int, render_kw=style)
+        addReview = StringField(label="Add a review: ")
+
+    form = AddReview()
+
+    if form.validate_on_submit():
+        # add restaurant to favs it's not already reviewed
+        print("1")
+        db.addToFavs(form.addRating.data, form.addReview.data, rest_info[0])
+
+    return render_template("stats.html", id=rest_info[0], name=rest_info[1], address=rest_info[2], phone=rest_info[3],
+           rating=rest_info[4], menu=rest_info[5], price_rating=rest_info[6], city=rest_info[12],
+           delivery="Yes" if (rest_info[8]) else "No", takeout="Yes" if (rest_info[9]) else "No",
+           flavour=rest_info[10], dish=rest_menu, reviews=rest_reviews, form=form)
+
+
 @app.route('/stats', methods=['POST', 'GET'])
 def stats():
     player_id = session['PLAYER_ID']
     stats = db.get_stats(player_id)[0]
 
-    return render_template("stats.html", name=stats[1], blocks=stats[9], drfgm=stats[11], drfga=stats[12], drfgpct=stats[13])
+    return render_template("stats.html", name=stats[1], blocks=stats[9], drfgm=stats[11], drfga=stats[12],
+                           drfgpct=stats[13])
+
 
 # create simple api that takes in id and response with stats of said player
 # ex player <id> = 201960
-@app.route('/api/<id>', methods=['GET','POST'])
+@app.route('/api/<id>', methods=['GET', 'POST'])
 def api(id):
     player_id = id
     stats = db.get_stats(player_id)
     return jsonify(stats)
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='localhost')

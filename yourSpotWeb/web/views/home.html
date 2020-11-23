@@ -1,0 +1,133 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<body>
+<!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+<!-- A script is used from jQuery.com-->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<nav class="darken-2">
+    <div class="nav-wrapper">
+        <a class="white-text brand-logo" href="/">yourSpot</a>
+    </div>
+</nav>
+
+<!-- Divider for all for easy space management-->
+<div class="all">
+
+    <!-- When hovering on any column it will make all the columns to the right change colours-->
+    <div class="column activate">
+        <div class="inside">
+            <!-- Name of a different page/view-->
+            <h1>Select the style of taste you wish</h1>
+
+            <div class="description">
+                <!-- When hovering on a column a link will appear with an explanation of the linked page-->
+                <p>Here you can chose what kind of food you are craving.
+                    Perhaps you're on a diet and need something light.
+                    Maybe you're on a date and want something sweet.
+                    Maybe you're just craving spicy food.
+                    Pick any type and we will recommend a restaurant for you!</p>
+                <a href="taste.html">Click here to select restaurant by taste.</a>
+            </div>
+
+        </div>
+
+        <!-- This divider is used to change the column colour on mouse hover-->
+        <div class="col view1"></div>
+
+    </div>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <div class="column activate">
+
+        <div class="inside">
+
+            <h1>View 2</h1>
+
+            <div class="description">
+                <p>Description of view 2</p>
+                <a href="">Click here to select View 2.</a>
+            </div>
+
+        </div>
+
+        <div class="col view2"></div>
+
+    </div>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <div class="column activate">
+
+        <div class="inside">
+
+            <h1>View 3</h1>
+
+            <div class="description">
+                <p>Description of view 3</p>
+                <a href="">Click here to select View 3.</a>
+            </div>
+
+        </div>
+
+        <div class="col view3"></div>
+
+    </div>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <div class="column activate">
+
+        <div class="inside">
+
+            <h1>View 4</h1>
+
+            <div class="description">
+                <p>Description of view 4</p>
+                <a href="">Click here to select View 4.</a>
+            </div>
+
+        </div>
+
+        <div class="col view4"></div>
+
+    </div>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="column activate">
+
+        <div class="inside">
+
+            <h1>View 5</h1>
+
+            <div class="description">
+                <p>Description of view 5</p>
+                <a href="">Click here to select View 5.</a>
+            </div>
+        </div>
+        <div class="col view5"></div>
+    </div>
+</div>
+
+<!-- The script makes a function that uses mouse hovering over column to activate-->
+<script type="text/javascript">
+		$(document).on('mouseover', '.all .column', function(){
+			$(this).addClass('activate').siblings().removeClass('activate')
+		})
+
+</script>
+<!-- It uses the activate class when a user is hovering over a column and removes the class when the pointer is not hovering over column-->
+
+</body>
+{% endblock %}
