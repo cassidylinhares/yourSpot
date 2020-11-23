@@ -102,7 +102,7 @@ ALTER USER '[YOURUSERNAME]'@'localhost' IDENTIFIED WITH mysql_native_password BY
 - add a python configuration with the following settings
 
 **For Web Server**
-![Configuration Setup Web](img/img/web-config.png)
+![Configuration Setup Web](img/img/web-config.PNG)
 
 ### Run Project
 
