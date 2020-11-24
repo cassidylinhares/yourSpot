@@ -74,7 +74,7 @@ def signup():
             msg = 'Please fill out the form!'
         else:
             # Account doesnt exists and the form data is valid, now insert new account into accounts table
-            cursor.execute('INSERT INTO user VALUES (%s, %s, %s, %s, %s, %s)', (id, Fname, Lname, username, password, email,))
+            cursor.execute('INSERT INTO user VALUES (NULL, %s, %s, %s, %s, %s)', (Fname, Lname, username, password, email,))
             mysql.connection.commit()
             msg = 'You have successfully registered!'
     elif request.method == 'POST':
