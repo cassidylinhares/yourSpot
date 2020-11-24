@@ -1,42 +1,80 @@
 <!DOCTYPE html>
 <html>
-<head><head>
+<head>
 		<meta charset="utf-8">
 		<title>SignUp</title>
-		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-	</head>
+<style>
+body{background-color: rgba(201, 76, 76, 0.2);}
+.signup{
+background-color: rgba(201, 200, 76, 0.2);
+border: 2px solid #4CAF50;
+margin: 150px;
+padding: 60px;
+display: block;
+color: black;
+}
+.head{
+display: block;
+background-color: #333;
+color:white;
+padding: 0;
+margin: 0;
+text-align: center;
+}
+.container{
+	text-align: center;
+}
+
+</style>
+<div class="container">
+<h2>Join Today!</h2>
+
+<h2>Find YourSpot</h2>
+</div>
+</head>
 	<body>
 		<div class="signup">
+			<div class=head>
 			<h1>SignUp</h1>
-			<div class="links">
-				<a href="{{ url_for('login') }}">Login</a>
-				<a href="{{ url_for('signup') }}" class="active">signup</a>
-			</div>
+</div>
 			<form action="{{ url_for('signup') }}" method="post" autocomplete="off">
         <label for="first_name">
-
+					First name:
 				</label>
-				<input type="text" name="first_name" placeholder="First name" id="first_name" required>
+				<input type="text" name="first_name" placeholder="first" id="first_name" required>
+				<br><br>
         <label for="last_name">
+					Last name:
 					<i class="fas fa-user"></i>
 				</label>
-				<input type="text" name="last_name" placeholder="last_name" id="last_name" required>
+				<input type="text" name="last_name" placeholder="last" id="last_name" required>
+				<br><br>
 				<label for="username">
 					<i class="fas fa-user"></i>
+					Username:
 				</label>
-				<input type="text" name="username" placeholder="Username" id="username" required>
+				<input type="text" name="username" placeholder="username" id="username" required>
+				<br>
+				<br>
 				<label for="password">
 					<i class="fas fa-lock"></i>
+					password:
 				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
+				<input type="password" name="password" placeholder="password" id="password" required>
+				<br><br>
 				<label for="email">
-					<i class="fas fa-envelope"></i>
+					<i class="fas fa-envelope"></i>email:
 				</label>
-				<input type="email" name="email" placeholder="Email" id="email" required>
-				<div class="msg">{{ msg }}</div>
+				<input type="email" name="email" placeholder="email" id="email" required>
+				<div class="msg">{{ msg }}</div><br>
 				<input type="submit" value="signup">
 			</form>
+			<div class="links">
+				<a href="{{ url_for('login') }}">Login</a>
+
+			</div>
 		</div>
+
 	</body>
 </html>
