@@ -81,7 +81,7 @@ python setup.py install
 
 - Use the `dump.sql` to populate and create all the tables/views
 
-![table created](img/img/import-dum.PNG)
+![table created](img/img/import-dump.PNG)
 
 
 ### Additional MySQL Setup
