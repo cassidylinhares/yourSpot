@@ -15,7 +15,7 @@ Repository to hold setup instructions for yourSpot.
 - Install git [if not already installed](https://git-scm.com/download/win)
 - Clone project *run in cmd as admin*
 ```
-git clone https://github.com/sealneaward/data-management-lab-7
+git clone hhttps://github.com/cassidylinhares/yourSpot
 ```
 - Install [Python 2.7 (Recommended)](https://www.python.org/downloads/release/python-2712/)
 - Add Python and Python scripts to path variable, **no spaces**
@@ -75,11 +75,11 @@ python setup.py install
 
 | Schema       |
 | ------------- |
-| nba    |
+| yourSpot     |
 
 ![MySQL Setup](img/schema-windows.PNG)
 
-- Use the .sql scripts in the db/schema folder to create the tables. Run as queries.
+- Use the `dump.sql` to populate and create all the tables/views
 
 ![table created](img/table-creation-team.PNG)
 
@@ -107,12 +107,16 @@ ALTER USER '[YOURUSERNAME]'@'localhost' IDENTIFIED WITH mysql_native_password BY
 **For Web Server**
 ![Configuration Setup Web](img/web-config.png)
 
-**For Databse Population**
-![Configuration Setup Web](img/populate-config.png)
-
 ### Run Project
 
+<<<<<<< Updated upstream
 1. Run the `web.py` script.
+=======
+1. Run the `web.py` script tostart the web server
+2. Open your broswer and go to ```localhost:5000/``` and the web page should display
+>>>>>>> Stashed changes
 
+#### Troubleshooting the Connection of the Webpage to the Database
+If for 
 
 **Note:** You can run the web and populate scripts on the command line if you ran the package installation on db.

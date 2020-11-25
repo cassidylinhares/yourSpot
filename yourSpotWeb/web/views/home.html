@@ -1,0 +1,128 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<body>
+<style>
+body
+{
+	background-image: url("{{ url_for('static', filename='img/YS.png') }}");
+	background-size: cover;
+	padding: 0;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif !important;
+}
+
+</style>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+<!-- A script is used from jQuery.com-->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<nav class="black darken-2">
+    <div class="nav-wrapper">
+        <a class="white-text brand-logo" href="/" style="padding:0 1rem;">yourSpot</a>
+        <a class="waves-effect waves-light right" href="/logout" style="padding:0 1rem;">Logout</a>
+        <a class="right" style="padding:0 1rem;">Welcome {{ name }}!</a>
+    </div>
+</nav>
+
+<!-- Divider for all for easy space management-->
+<div class="all">
+    <!-- When hovering on any column it will make all the columns to the right change colours-->
+    <div class="column activate">
+        <div class="inside">
+            <!-- Name of a different page/view-->
+            <h1>Welcome</h1>
+            <div class="description">
+                <!-- When hovering on a column a link will appear with an explanation of the linked page-->
+                <p>Here you can chose what kind of food you are craving.
+                    Perhaps you're on a diet and need something light.
+                    Maybe you're on a date and want something sweet.
+                    Maybe you're just craving spicy food.
+                    Pick any type and we will recommend a restaurant for you!</p>
+            </div>
+        </div>
+        <!-- This divider is used to change the column colour on mouse hover-->
+        <div class="col view1"></div>
+    </div>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <div class="column activate">
+
+        <div class="inside">
+
+            <h1>Craving Something</h1>
+
+            <div class="description">
+                <p>What are you in the mood? What ever it is, we have it!! Let your cravings do the choosing for
+                    you!</p>
+                <a href="{{ url_for('flavour_town') }}">Let's go to Flavour Town >></a>
+            </div>
+
+        </div>
+
+        <div class="col view2"></div>
+
+    </div>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <div class="column activate">
+        <div class="inside">
+            <h1>Food Map</h1>
+            <div class="description">
+                <p>Want to see what options are in your area? Here we have a map of all the food places around you!</p>
+                <a href="{{ url_for('map_view') }}">Discover restaurants near you >></a>
+            </div>
+        </div>
+        <div class="col view3"></div>
+    </div>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------->
+
+
+    <div class="column activate">
+        <div class="inside">
+            <h1>Your Spots</h1>
+            <div class="description">
+                <p>You get to view all the most liked restaurants here.
+                    You also get to chose you favourite restaurants that
+                    will be used to predict which restaurants are right for
+                    you. This feature will be added in the next update.</p>
+                <a href="{{ url_for('your_spots') }}">Go to your restaurants >></a>
+            </div>
+        </div>
+        <div class="col view4"></div>
+    </div>
+
+
+    <!--------------------------------------------------------------------------------------------------------------------------------->
+
+    <div class="column activate lighten-2">
+        <div class="inside ">
+            <h1>Best of the Best</h1>
+            <div class="description">
+                <p>View the best sets of restaurants for your needs.</p>
+                <a href="{{ url_for('top_spots') }}">Go see the top 10s >></a>
+            </div>
+        </div>
+        <div class="col view5"></div>
+    </div>
+</div>
+
+<!-- The script makes a function that uses mouse hovering over column to activate-->
+<script type="text/javascript">
+		$(document).on('mouseover', '.all .column', function(){
+			$(this).addClass('activate').siblings().removeClass('activate')
+		})
+
+</script>
+<!-- It uses the activate class when a user is hovering over a column and removes the class when the pointer is not hovering over column-->
+
+</body>
+{% endblock %}

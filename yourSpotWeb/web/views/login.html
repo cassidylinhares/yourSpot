@@ -1,0 +1,134 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+<body>
+<style>
+body {
+font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+border: 3px solid #f1f1f1;
+}
+
+.hero-image{
+background-image: url({{ url_for('static', filename='img/fancy.jpg')}});
+background-color: #f5f5f5;
+height: 100%;
+background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;}
+input[type=text], input[type=password] {
+  width: 40%;
+  padding: 15px 10px;
+  margin: 20px 0;
+  display: block;
+  text-align: center;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 20px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  background-size:cover;
+  width:100;
+  background-color: rgb(0,0,0,0.6);
+  align-items: center;
+  padding: 50px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+.register{
+  text-align: center;
+}
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 100px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+
+</style>
+<div class="hero-image">
+    <form action="{{ url_for('login') }}" method="post" class="form-group">
+        <div class="img container">
+            <img src="public/img/ys.png" alt="꧁༺YourSpot ༻꧂" class="avatar">
+        </div>
+
+        <div class="container ">
+            {{ form.csrf_token }}
+            <!--            username section                -->
+            {{ form.username.label(class='label') }}
+            {{ form.username(class="white-text") }}
+            {% if form.username.errors %}
+                <ul class="errors">
+                    {% for err in form.username.errors %}
+                        <li class="white-text">{{ err }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <!--            password section                -->
+            {{ form.password.label(class='label') }}
+            {{ form.password(class="white-text") }}
+            {% if form.password.errors %}
+                <ul class="errors">
+                    {% for err in form.password.errors %}
+                        <li class="white-text">{{ err }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <div class="white-text">{{ msg }}</div>
+            <input class="btn btn-default" type="submit" value="Login">
+<!--            <label>-->
+<!--                <input type="checkbox" checked="checked" class="filled-in">-->
+<!--                <span>Remember Me</span>-->
+<!--            </label>-->
+        </div>
+
+        <div class="container">
+            <div class="register btn blue">
+                <a href="{{ url_for('signup') }}" class="white-text">signup</a>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+{% endblock %}
