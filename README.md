@@ -81,7 +81,7 @@ python setup.py install
 
 - Use the `dump.sql` to populate and create all the tables/views
 
-![table created](img/img/import-dump.PNG)
+![import dump](img/img/import-dump.png)
 
 
 ### Additional MySQL Setup
@@ -104,7 +104,7 @@ ALTER USER '[YOURUSERNAME]'@'localhost' IDENTIFIED WITH mysql_native_password BY
 - add a python configuration with the following settings
 
 **For Web Server**
-![Configuration Setup Web](img/img/web-config.png)
+![Configuration Setup Web](img/img/web-config.PNG)
 
 ### Run Project
 
