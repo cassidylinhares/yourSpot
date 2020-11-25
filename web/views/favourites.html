@@ -1,0 +1,57 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+<body>
+<style>
+    body {
+	  background-image: url({{ url_for('static', filename='img/fancy.jpg')}});
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	}
+
+
+</style>
+<nav class="red lighten-2">
+    <div class="nav-wrapper">
+        <a class="white-text brand-logo" href="/" style="padding:0 1rem;">yourSpot</a>
+        <a class="waves-effect waves-light right" href="/logout" style="padding:0 1rem;">Logout</a>
+        <a class="right" style="padding:0 1rem;">Welcome {{ name }}!</a>
+    </div>
+</nav>
+
+<div class=" hero">
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <!-- your Spots -->
+                <div class="row">
+                    <div class="col s12">
+                        <h3 class="black-text">Hi {{ name }}! Here are your Spots:</h3>
+                        {% for row in food %}
+                        <!-- add a card for each restaurant -->
+                        <div class="card blue-grey darken-3 center">
+                            <div class="card-content white-text">
+                                <span class="card-title">{{ row[1] }}</span>
+                                <p>
+                                    <b>Your Rating:</b> {{ row[4] }} of 5<br>
+                                    <b>Review: </b><br>{{ row[5] }}<br>
+                                    <i>{{ row[6] }}</i>
+                                </p>
+                            </div>
+                            <div class="card-action">
+                                <a href="{{ url_for('restaurant_info', id=row[2]) }}">Get more info >></a>
+                                <a href="{{ url_for('delete_spot', id=row[0]) }}"
+                                   class="btn red">Delete</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,120 @@
+/*Bottom layer background set font is defined*/
+body
+{
+	background: url("{{ url_for('static', filename='img/YS.png') }}");
+	background-size: cover;
+	padding: 0;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/*Set to fill the whole screen*/
+.all
+{
+	overflow: hidden;
+	height: 100vh;
+	width: 100%;
+}
+
+/*all columns have orange border and exist on the front layer of page*/
+.all .column
+{
+	float: left;
+	box-sizing: border-box;
+	z-index: 1;
+	border-color: #FFA500;
+	border: 3px solid rgba(0,0,0,.5);
+	height: 100%;
+	width: 20%;
+
+}
+
+
+/*position of things inside column is non-static*/
+.all .column .inside
+{
+	height: 100%;
+	position: relative;
+
+}
+
+/*header exists over the short description when not hovered on it is transparent and has a drop animation*/
+.all .column .inside h1
+{
+	box-sizing: border-box;
+	padding: 20px;
+	opacity: 0.5;
+	position: absolute;
+	top: 50%;
+	color: white;
+	transform: translateY(-50%);
+
+}
+
+/*When being hovered on header must disappear not to obstruct the description*/
+.all .column.activate .inside h1
+{
+	opacity: 0;
+}
+
+/*discription is invisible until hovered on not to obstruct the header in this position*/
+.all .column .inside .description
+{
+	position: absolute;
+	top: 50%;
+	transform: translateY(100%);
+	box-sizing: border-box;
+	padding: 20px;
+	text-align: center;
+	transition: 0.5s;
+	opacity: 0;
+}
+
+/*becomes visible when hovering over the description*/
+.all .column.activate .inside .description
+{
+	opacity: 1;
+	transform: translateY(-50%);
+}
+
+
+/*all col change the background of all columns to the right of it because of the layered design*/
+.all .column .col
+{
+	width: 100%;
+	height: 100%;
+	top: 0;
+	z-index: -1;
+	position: absolute;
+	pointer-events: none;
+}
+
+/*all columns await to be hovered over by pointer to change colour having a .3 second delay to sinc with animation */
+.all .column.activate .col.view1
+{
+	transition: 0.3s;
+	background-color: #3895d3;
+}
+
+.all .column.activate .col.view2
+{
+	transition: 0.3s;
+	background-color: #66f86a;
+}
+
+.all .column.activate .col.view3
+{
+	transition: 0.3s;
+	background-color: yellow;
+}
+
+.all .column.activate .col.view4
+{
+	transition: 0.3s;
+	background-color: orange;
+}
+
+.all .column.activate .col.view5
+{
+	transition: 0.3s;
+	background-color: red;
