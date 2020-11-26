@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
--- Host: localhost    Database: project0
+-- Host: localhost    Database: yourSpot
 -- ------------------------------------------------------
 -- Server version	8.0.22
 
