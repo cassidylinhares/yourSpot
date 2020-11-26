@@ -79,7 +79,8 @@ python setup.py install
 
 ![MySQL Setup](img/img/schema-windows.PNG)
 
-- Use the `dump.sql` to populate and create all the tables/views
+- Use the `dump/` to populate and create all the tables/views
+- Run all the files in MySQL Workbench to creat and populate the tables. (you may need to add `yourspot.[table name]` to load them into the correct database.
 
 ![import dump](img/img/import-dump.png)
 
